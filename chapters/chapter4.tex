@@ -10,246 +10,463 @@
 \label{intro} % Always give a unique label
 % use \chaptermark{}
 % to alter or adjust the chapter heading in the running head
-
-\abstract*{Each chapter should be preceded by an abstract (10--15 lines long) that summarizes the content. The abstract will appear \textit{online} at \url{www.SpringerLink.com} and be available with unrestricted access. This allows unregistered users to read the abstract as a teaser for the complete chapter. As a general rule the abstracts will not appear in the printed version of your book unless it is the style of your particular book or that of the series to which your book belongs.
-Please use the 'starred' version of the new Springer \texttt{abstract} command for typesetting the text of the online abstracts (cf. source file of this chapter template \texttt{abstract}) and include them with the source files of your manuscript. Use the plain \texttt{abstract} command if the abstract is also to appear in the printed version of the book.}
-
-\abstract{Each chapter should be preceded by an abstract (10--15 lines long) that summarizes the content. The abstract will appear \textit{online} at \url{www.SpringerLink.com} and be available with unrestricted access. This allows unregistered users to read the abstract as a teaser for the complete chapter. As a general rule the abstracts will not appear in the printed version of your book unless it is the style of your particular book or that of the series to which your book belongs.\newline\indent
-Please use the 'starred' version of the new Springer \texttt{abstract} command for typesetting the text of the online abstracts (cf. source file of this chapter template \texttt{abstract}) and include them with the source files of your manuscript. Use the plain \texttt{abstract} command if the abstract is also to appear in the printed version of the book.}
-
-\section{Section Heading}
-\label{sec:1}
-Use the template \emph{chapter.tex} together with the Springer document class SVMono (monograph-type books) or SVMult (edited books) to style the various elements of your chapter content in the Springer layout.
-
-\section{Section Heading}
-\label{sec:2}
-% Always give a unique label
-% and use \ref{<label>} for cross-references
-% and \cite{<label>} for bibliographic references
-% use \sectionmark{}
-% to alter or adjust the section heading in the running head
-Instead of simply listing headings of different levels we recommend to let every heading be followed by at least a short passage of text. Furtheron please use the \LaTeX\ automatism for all your cross-references and citations.
-
-Please note that the first line of text that follows a heading is not indented, whereas the first lines of all subsequent paragraphs are.
-
-Use the standard \verb|equation| environment to typeset your equations, e.g.
-%
-\begin{equation}
-a \times b = c\;,
-\end{equation}
-%
-however, for multiline equations we recommend to use the \verb|eqnarray|
-environment\footnote{In physics texts please activate the class option \texttt{vecphys} to depict your vectors in \textbf{\itshape boldface-italic} type - as is customary for a wide range of physical subjects.}.
-\begin{eqnarray}
-a \times b = c \nonumber\\
-\vec{a} \cdot \vec{b}=\vec{c}
-\label{eq:01}
-\end{eqnarray}
-
-\subsection{Subsection Heading}
-\label{subsec:2}
-Instead of simply listing headings of different levels we recommend to let every heading be followed by at least a short passage of text. Furtheron please use the \LaTeX\ automatism for all your cross-references\index{cross-references} and citations\index{citations} as has already been described in Sect.~\ref{sec:2}.
-
-\begin{quotation}
-Please do not use quotation marks when quoting texts! Simply use the \verb|quotation| environment -- it will automatically render Springer's preferred layout.
-\end{quotation}
+\abstract{语音识别系统分为前端处理和后端处理两个部分，前端处理主要包括特征的提取、特征的优化处理等。特征提取可以将提取出有用的信息，相对无关的信息，如背景噪声、信道噪声等去掉。特征的优化处理可以很大程度地声带长度相差大、不能很好地模拟数据，计算量大，内存负担重，噪音、回声等问题。本章主要介绍了MFCC、Fbank、MLLT、VTLN、LDA、PCA、DAE 的特征处理算法。}
 
 
-\subsubsection{Subsubsection Heading}
-Instead of simply listing headings of different levels we recommend to let every heading be followed by at least a short passage of text. Furtheron please use the \LaTeX\ automatism for all your cross-references and citations as has already been described in Sect.~\ref{subsec:2}, see also Fig.~\ref{fig:1}\footnote{If you copy text passages, figures, or tables from other works, you must obtain \textit{permission} from the copyright holder (usually the original publisher). Please enclose the signed permission with the manucript. The sources\index{permission to print} must be acknowledged either in the captions, as footnotes or in a separate section of the book.}
-
-Please note that the first line of text that follows a heading is not indented, whereas the first lines of all subsequent paragraphs are.
-
-% For figures use
-%
-%\begin{figure}[b]
-%\sidecaption
-% Use the relevant command for your figure-insertion program
-% to insert the figure file.
-% For example, with the option graphics use
-%\includegraphics[scale=.65]{}
-%
-% If not, use
-%\picplace{5cm}{2cm} % Give the correct figure height and width in cm
-%
-%\caption{If the width of the figure is less than 7.8 cm use the \texttt{sidecapion} command to flush the caption on the left side of the page. If the figure is positioned at the top of the page, align the sidecaption with the top of the figure -- to achieve this you simply need to use the optional argument \texttt{[t]} with the \texttt{sidecaption} command}
-%\label{fig:1}       % Give a unique label
-%\end{figure}
-
-\paragraph{Paragraph Heading} %
-Instead of simply listing headings of different levels we recommend to let every heading be followed by at least a short passage of text. Furtheron please use the \LaTeX\ automatism for all your cross-references and citations as has already been described in Sect.~\ref{sec:2}.
-
-Please note that the first line of text that follows a heading is not indented, whereas the first lines of all subsequent paragraphs are.
-
-For typesetting numbered lists we recommend to use the \verb|enumerate| environment -- it will automatically render Springer's preferred layout.
-
-\begin{enumerate}
-\item{Livelihood and survival mobility are oftentimes coutcomes of uneven socioeconomic development.}
-\begin{enumerate}
-\item{Livelihood and survival mobility are oftentimes coutcomes of uneven socioeconomic development.}
-\item{Livelihood and survival mobility are oftentimes coutcomes of uneven socioeconomic development.}
-\end{enumerate}
-\item{Livelihood and survival mobility are oftentimes coutcomes of uneven socioeconomic development.}
-\end{enumerate}
-
-
-\subparagraph{Subparagraph Heading} In order to avoid simply listing headings of different levels we recommend to let every heading be followed by at least a short passage of text. Use the \LaTeX\ automatism for all your cross-references and citations as has already been described in Sect.~\ref{sec:2}, see also Fig.~\ref{fig:2}.
-
-Please note that the first line of text that follows a heading is not indented, whereas the first lines of all subsequent paragraphs are.
-
-For unnumbered list we recommend to use the \verb|itemize| environment -- it will automatically render Springer's preferred layout.
-
-\begin{itemize}
-\item{Livelihood and survival mobility are oftentimes coutcomes of uneven socioeconomic development, cf. Table~\ref{tab:1}.}
-\begin{itemize}
-\item{Livelihood and survival mobility are oftentimes coutcomes of uneven socioeconomic development.}
-\item{Livelihood and survival mobility are oftentimes coutcomes of uneven socioeconomic development.}
-\end{itemize}
-\item{Livelihood and survival mobility are oftentimes coutcomes of uneven socioeconomic development.}
-\end{itemize}
-
-%\begin{figure}[t]
-%\sidecaption[t]
-% Use the relevant command for your figure-insertion program
-% to insert the figure file.
-% For example, with the option graphics use
-%\includegraphics[scale=.65]{figure}
-%
-% If not, use
-%\picplace{5cm}{2cm} % Give the correct figure height and width in cm
-%
-%\caption{Please write your figure caption here}
-%\label{fig:2}       % Give a unique label
-%\end{figure}
-
-\runinhead{Run-in Heading Boldface Version} Use the \LaTeX\ automatism for all your cross-references and citations as has already been described in Sect.~\ref{sec:2}.
-
-\subruninhead{Run-in Heading Italic Version} Use the \LaTeX\ automatism for all your cross-refer\-ences and citations as has already been described in Sect.~\ref{sec:2}\index{paragraph}.
-% Use the \index{} command to code your index words
-%
-% For tables use
-%
-\begin{table}
-\caption{Please write your table caption here}
-\label{tab:1}       % Give a unique label
-%
-% For LaTeX tables use
-%
-\begin{tabular}{p{2cm}p{2.4cm}p{2cm}p{4.9cm}}
-\hline\noalign{\smallskip}
-Classes & Subclass & Length & Action Mechanism  \\
-\noalign{\smallskip}\svhline\noalign{\smallskip}
-Translation & mRNA$^a$  & 22 (19--25) & Translation repression, mRNA cleavage\\
-Translation & mRNA cleavage & 21 & mRNA cleavage\\
-Translation & mRNA  & 21--22 & mRNA cleavage\\
-Translation & mRNA  & 24--26 & Histone and DNA Modification\\
-\noalign{\smallskip}\hline\noalign{\smallskip}
-\end{tabular}
-$^a$ Table foot note (with superscript)
-\end{table}
-%
-\section{Section Heading}
-\label{sec:3}
-% Always give a unique label
-% and use \ref{<label>} for cross-references
-% and \cite{<label>} for bibliographic references
-% use \sectionmark{}
-% to alter or adjust the section heading in the running head
-Instead of simply listing headings of different levels we recommend to let every heading be followed by at least a short passage of text. Furtheron please use the \LaTeX\ automatism for all your cross-references and citations as has already been described in Sect.~\ref{sec:2}.
-
-Please note that the first line of text that follows a heading is not indented, whereas the first lines of all subsequent paragraphs are.
-
-If you want to list definitions or the like we recommend to use the Springer-enhanced \verb|description| environment -- it will automatically render Springer's preferred layout.
-
-\begin{description}[Type 1]
-\item[Type 1]{That addresses central themes pertainng to migration, health, and disease. In Sect.~\ref{sec:1}, Wilson discusses the role of human migration in infectious disease distributions and patterns.}
-\item[Type 2]{That addresses central themes pertainng to migration, health, and disease. In Sect.~\ref{subsec:2}, Wilson discusses the role of human migration in infectious disease distributions and patterns.}
-\end{description}
-
-\subsection{Subsection Heading} %
-In order to avoid simply listing headings of different levels we recommend to let every heading be followed by at least a short passage of text. Use the \LaTeX\ automatism for all your cross-references and citations citations as has already been described in Sect.~\ref{sec:2}.
-
-Please note that the first line of text that follows a heading is not indented, whereas the first lines of all subsequent paragraphs are.
-
-\begin{svgraybox}
-If you want to emphasize complete paragraphs of texts we recommend to use the newly defined Springer class option \verb|graybox| and the newly defined environment \verb|svgraybox|. This will produce a 15 percent screened box 'behind' your text.
-
-If you want to emphasize complete paragraphs of texts we recommend to use the newly defined Springer class option and environment \verb|svgraybox|. This will produce a 15 percent screened box 'behind' your text.
-\end{svgraybox}
-
-
-\subsubsection{Subsubsection Heading}
-Instead of simply listing headings of different levels we recommend to let every heading be followed by at least a short passage of text. Furtheron please use the \LaTeX\ automatism for all your cross-references and citations as has already been described in Sect.~\ref{sec:2}.
-
-Please note that the first line of text that follows a heading is not indented, whereas the first lines of all subsequent paragraphs are.
-
-\begin{theorem}
-Theorem text goes here.
-\end{theorem}
-%
-% or
-%
-\begin{definition}
-Definition text goes here.
-\end{definition}
-
-\begin{proof}
-%\smartqed
-Proof text goes here.
-\qed
-\end{proof}
-
-\paragraph{Paragraph Heading} %
-Instead of simply listing headings of different levels we recommend to let every heading be followed by at least a short passage of text. Furtheron please use the \LaTeX\ automatism for all your cross-references and citations as has already been described in Sect.~\ref{sec:2}.
-
-Note that the first line of text that follows a heading is not indented, whereas the first lines of all subsequent paragraphs are.
-%
-% For built-in environments use
-%
-\begin{theorem}
-Theorem text goes here.
-\end{theorem}
-%
-\begin{definition}
-Definition text goes here.
-\end{definition}
-%
-\begin{proof}
-\smartqed
-Proof text goes here.
-\qed
-\end{proof}
-%
-\begin{acknowledgement}
-If you want to include acknowledgments of assistance and the like at the end of an individual chapter please use the \verb|acknowledgement| environment -- it will automatically render Springer's preferred layout.
-\end{acknowledgement}
-%
-\section*{Appendix}
-\addcontentsline{toc}{section}{Appendix}
-%
-When placed at the end of a chapter or contribution (as opposed to at the end of the book), the numbering of tables, figures, and equations in the appendix section continues on from that in the main text. Hence please \textit{do not} use the \verb|appendix| command when writing an appendix at the end of your chapter or contribution. If there is only one the appendix is designated ``Appendix'', or ``Appendix 1'', or ``Appendix 2'', etc. if there is more than one.
+\section{MFCC和Fbank}
+\subsection{MFCC和Fbank的基本原理}
+在自动语音识别(automatic speech recognition, ASR)研究中，大多数的方法是从音频信号提取出有用的信息，即特征提取，将特征信息作为识别系统的输入。特征提取的好坏直接影响识别系统的性能，如何根据人耳听觉特性提取具有辨识性的音频信息是语音识别的首要任务。梅尔倒谱系数（Mel-scale Frequency Cepstral Coefficients, MFCC）【Comparison of parametric representations for monosyllabic word recognition in continuously spoken sentences】 和滤波器带(Filter Fbank,Fbank)是目前比较常用的特征提取方法。
+\subsubsection{预加重、分帧、加窗和抖动}
+时域上的语音信号以固定的采样频率等间隔采样，得到离散语音序列，即模数转换（Analog to digital conversion，ADC）。一般采样频率为8000Hz或16000Hz。语音信号具有短时稳定的特点，因此，语音信号的处理都是基于短时信号。
+由于发声的声带和嘴唇效应降低高频共振峰的幅值，引入高通滤波器补偿高频部分，即预加重，在Kaldi中，预处理系数默认为0.97。预加重的公式如下所示：
 
 \begin{equation}
-a \times b = c
+s(n)=s(n)-a*s(n-1)
 \end{equation}
-% Problems or Exercises should be sorted chapterwise
-\section*{Problems}
-\addcontentsline{toc}{section}{Problems}
-%
-% Use the following environment.
-% Don't forget to label each problem;
-% the label is needed for the solutions' environment
-\begin{prob}
-\label{prob1}
-A given problem or Excercise is described here. The
-problem is described here. The problem is described here.
-\end{prob}
 
-\begin{prob}
-\label{prob2}
-\textbf{Problem Heading}\\
-(a) The first part of the problem is described here.\\
-(b) The second part of the problem is described here.
-\end{prob}
+经过Z变换，得到高通滤波器，如下式所示：
+\begin{equation}
+H(z)=1-k*z^{-1}, 0.9<k<1.0
+\end{equation}
 
-\input{referenc}
+由于语音信号的短时稳定性，对语音信号进行分帧，每帧的长度为25ms，每两帧之间有15ms的交叠。为了避免吉布斯效应，帧与帧之间的不连续性，我们需要对信号进行加窗,加窗之后的语音信号变得具有周期性。目前，使用的是povey窗，是基于汉明窗的改进。Povey窗的公式如下所示：
+\begin{equation}
+window(n) =  (0.5-0.5*cos(2 \pi n)/(L-1))^{0.85}
+\end{equation}
+其中L表示为帧长。
+
+语音信号添加抖动，类似于加入高斯随机信息，归一化预处理，公式如下所示：
+\begin{equation}
+window(n) =  window(n) + RandGauss() * k
+\end{equation}
+其中k是抖动值。
+
+\subsubsection{快速傅里叶变换和Mel滤波}
+语音信号变化快，不稳定，很难在时域对信号进行分析和处理，而信号在频域上的变化是平稳而缓慢，所以将语音信号的每帧信息经过快速傅里叶变换(Fast Fourier transform, FFT)得到其频域，包含幅值和相位信息。
+根据人耳听觉特性的研究，引入一组三角滤波带，即Mel滤波，可以将线性频谱转换成Mel非线性谱。人耳对低频声音敏感，随着频率的增大，三角滤波带越来越密集。一般选取23个重叠的三角滤波带，相邻滤波带中心距离是相等的。
+从频域到mel域的公式如下所示:
+\begin{equation}
+Mel(f)=1125*ln(1+fre/700)
+\end{equation}
+
+从梅尔域到频域：
+\begin{equation}
+Mel^{-1}(m)=700(exp(m/1125)-1)
+\end{equation}
+
+\subsubsection{取对数、离散余弦变换和动态特征}
+计算经过梅尔滤波器后梅尔能量的对数值，得到的值作为Fbank特征。一般特征的维数采用40维。
+再经过离散余弦变换（DCT），取前13维系数作为MFCC特征。得到的13维德MFCC特征只体现语音信号的静态特征，求其一阶、二阶差分来表征其动态特性，静态特性和动态特性结合成39维德MFCC特征，其系统性能会好于只有静态信息的MFCC特征。
+由于经过DCT，丢失一些语音信息，因此，基于Fbank特征的语音识别系统性能要好于MFCC特征。
+
+\subsubsection{减平均}
+为了避免信道噪声的影响，引入减平均方法。如下式所示：
+\begin{equation}
+mfcc(i)=mfcc(i)- \frac{mfcc(i)}{n}
+\end{equation}
+其中：i表示列索引，n代表行数。
+
+\subsection{基于Kaldi的特征提取}
+MFCC特征提取技术成功在Kaldi工具箱上实现。读取数据是.wav文件或是.pcm文件，.pcm文件使用sphere 文件转换，需要安装sph2pipe。文件的读写格式参考kaldi的 RandomAccessTableReader类和SequentialTableReader，读和写的形式如下：\\
+读：\\
+(1)scp:- \\
+(2)ark:- \\
+写：\\
+(1)ark,t:-\\
+(2)ark,scp:tmp.ark,tmp.scp \\
+主要输入文件类型:\\
+(1)"-"表示标准输入；\\
+(2)"|"表示输入管道命令；\\
+主要写入文件格式选项：\\
+(1)"b"表示二进制模式 \\
+(2)"t"文本模式 \\
+(3) "f" 写入文件之后，刷新流 \\
+(4) "nf"写入文件之后，不刷新流 \\
+(5) "P" 允许模式，如果过"scp"文件内容路径丢失，不做任何处理，报错 \\
+主要写入文件格式选项：\\
+(1) "o"表示文件只能被读一次 \\
+(2) "p"表示文件里有些内容损坏或丢失，忽略错误，处理没有问题的数据 \\
+(3) "s"表示按顺序读取第一列key \\
+还有一些选项就不一一介绍了，比如:"no","np","ns","ncs","b","t"等。\\
+kaldi中，基于16kHz数据的特征提取的高频和低频的截止频率设为7800,20.
+下面讲解一下如何使用Kaldi工具箱的命令提取和一些常用的特征处理指令。\\
+提取plp/Fbank/MFCC/频谱特征，使用compute-plp-feats,compute-fbank-feats,compute-mfcc-feats,compute-spectrogram-feats\\
+用法：\\
+compute-plp-feats [options...] $<wav-rspecifier>\quad<feats-wspecifier>$ \\
+compute-fbank-feats [options...] $<wav-rspecifier>\quad <feats-wspecifier>$ \\
+compute-mfcc-feats [options...] $<wav-rspecifier>\quad <feats-wspecifier>$ \\
+compute-spectrogram-feats [options...] $<wav-rspecifier>\quad <feats-wspecifier>$ \\
+比如：\\
+compute-fbank-feats scp:wav.scp scp:feats.scp \\
+compute-mfcc-feats有有subtract-mean选项来提取特征的均值。对每个语音做此操作；每个说话人可以有（倒谱均值方差归一化）CMVN方式来提取特征均值。
+计算的特征是二进制，如果想要查看生成的特征矩阵，使用copy-feats命令。 \\
+用法：copy-feats [options] $<feats-rxfilename>\quad<feats-wxfilename>$ \\
+比如：copy-feats ark:feats.ark ark,t:feats.ark 或 copy-feats ark:feats.ark ark,scp:feats.new.ark,feats.new.scp \\
+
+如果想要查看特征的维数，使用feat-to-dim命令。\\
+用法：feat-to-dim [options] $<feat-rspecifier>\quad(<dim-wspecifier>|<dim-wxfilename>)$ \\
+比如：feat-to-dim scp:feats.scp - \\
+
+如果想要查看特征的长度，使用feat-to-len命令。 \\
+用法：feat-to-len [options] $<in-rspecifier>\quad[<out-wspecifier>]$ \\
+比如：feat-to-len scp:feats.scp ark,t:feats.lengths  \\
+
+如果想要联合特征，使用concat-feats，paste-feats命令。 \\
+用法：\\
+concat-feats $<in-rxfilename1> <in-rxfilename2>\quad [<in-rxfilename3> ...] <out-wxfilename> $\\
+paste-feats $<in-rspecifier1> <in-rspecifier2>\quad [<in-rspecifier3> ...] <out-wspecifier>$ \\
+比如：\\
+concat-feats mfcc/foo.ark:12343 mfcc/foo.ark:56789 - \\
+paste-feats ark:feats1.ark "ark:select-feats 0-3 ark:feats2.ark ark:- |" ark:feats-out.ark \\
+paste-feats foo.mat bar.mat baz.mat \\
+
+如果以某种形式(时间,行,列,个数等)分割特征，使用select-feats，extract-rows，subset-feats，subsample-feats,extract-segments,extract-feature-segments命令。 \\
+用法：\\
+select-feats $<selection> \quad<in-rspecifier>\quad <out-wspecifier>$ \\
+extract-rows [options] $<segments-file>\quad <features-rspecifier> \quad<features-wspecifier>$ \\
+subset-feats [options] $<in-rspecifier> \quad<out-wspecifier>$ \\
+subsample-feats [options] $<in-rspecifier>\quad <out-wspecifier>$ \\
+extract-segments [options] $<wav-rspecifier> \quad<segments-file>\quad <wav-wspecifier>$ \\
+其中segments-file的格式：\\
+$<segment-id> <recording-id> <start-time> <end-time>$ \\
+$<segment-id> <wav-file-name> <start-time> <end-time> <channel>$ \\
+extract-feature-segments [options...]$ <feats-rspecifier>  <segments-file> <feats-wspecifier>$ \\
+其中 segments-file的格式：\\
+output-utterance-id input-utterance-or-spk-id 1.10 2.36 \\
+比如：\\
+select-feats 0,24-22,3-12 scp:feats.scp ark,scp:feat-red.ark,feat-red.scp \\
+extract-rows --frame-shift=0.01 segments ark:feats-in.ark ark:feats-out.ark \\
+subset-feats --n=10 ark:- ark:- \\
+subset-feats $--include=include\_uttlist$ ark:- ark:- \\
+subset-feats $--exclude=exclude\_uttlist$ ark:- ark:- \\
+subsample-feats --n=2 ark:- ark:- \\
+extract-segments scp:wav.scp segments ark:- \\
+extract-feature-segments  scp:feats.scp segments ark:- \\
+
+如果将上下文相关特征拼接，使用splice-feats命令。 \\
+用法: \\
+splice-feats [options] $<feature-rspecifier>\quad <feature-wspecifier>$ \\
+比如：\\
+splice-feats scp:feats.scp ark:- \\
+
+如果差分计算，使用add-deltas命令。\\
+用法：add-deltas [options] in-rspecifier out-wspecifier
+比如：add-delta scp:feats.scp ark:- \\
+减平均是通过compute-plp-feats,compute-fbank-feats,compute-mfcc-feats,compute-spectrogram-feats的一个选项"–subtract-mean"实现。
+
+\section{MLLT}
+\subsection{MLLT的基本原理}
+很多研究者证实数据可以被看作是高斯混合分布。如何使用高斯混合模型很好地模拟数据具有很重要的研究意义。
+目前的ASR系统使用DNN-HMM模型，其中状态切分是由GMM生成的。
+标准的GMM模型如下所示[3]：
+\begin{equation}
+p(x| \Theta) = \sum_{j=1}^{M} c_{j} N(x;\mu_{j},\Sigma_{j})
+\end{equation}
+其中，$\Theta = \{c_{j},u_{j},\Sigma_{j}\}_{j}^{M}$, M代表高斯混合模型个数，$c_{j}$代表第j个高斯混合模型的权重值，$c_{j}>=0$,$\sum_{j=1}^{M} c_{j}=1$, $\mu_{j}$和$\Sigma_{j}$是第j个高斯混合模型的均值和协方差。\\
+最大值可能性（Maximum Likelihood, ML）是评估高斯混合模型模拟数据好坏的一个准则。ML准则存在以下问题【R. Gopinath, “Maximum likelihood modeling with Gaussian distributions for classification,” in Proc. IEEE ICASSP, 1998, vol. 2, pp. 661–664.】:(1) 匮乏的数据易使模型过拟合；(2) 大量的内存需求 (3) 大计算量的需求 (4) ML在类之间不具有判别性。基于上述问题，引入最大可能性线性变换(Maximum Likelihood Linear Transform, MLLT),将全协方差的形式换成对角协方差形式，允许共享一些全协方差矩阵，因此，MLLT方法可以解决前三个问题。
+MLLT的逆协方差如下式所示：
+\begin{equation}
+\Sigma_{j}^{-1}  \approx W \Lambda_{j} W^{T} = \sum_{k=1}^{n} \lambda_{s}^{k} \omega_{k} \omega_{k}^{T}
+\end{equation}
+其中$\Lambda_{j}=diag(\Lambda_{j})=diag(\lambda_{j}^{1},\lambda_{j}^{2},...,lambda_{j}^{n})$, $\omega_{k}^{T}$代表$W^{T}$的第k行。
+根据文献【Text,Speech and Diglogue】[Semi-Tied Covariance Matrices for Hidden Markov Models]，得到$W^{T}$，是特征向量经过变换，公式如下式所示：
+\begin{equation}
+o(t)^{(r)}=W^{T} o(t), for \qquad r = 1,...,R
+\end{equation}
+最大可能性方法的模型评估参数公式如下所示：
+\begin{equation}
+\hat{\Theta} =  arg \max \limits_{\Theta} \sum_{j=1}^{N} logp(x_{i}| \Theta)
+\end{equation}
+将$\hat{\Theta}$不断更新，直到最大期望算法（Expectation Maximization Algorithm,EM）达到收敛。
+
+\subsection{基于kaldi的MLLT}
+
+如果想要得到MLLT变换矩阵$W^{T}$，使用gmm-acc-mllt命令。\\
+用法:\\
+gmm-acc-mllt [options] $<model-in> <feature-rspecifier> <posteriors-rspecifier> <stats-out>$ \\
+比如：\\
+gmm-acc-mllt 1.mdl scp:train.scp ark:1.post 1.macc \\
+如果想要查看1.macc，使用copy-matrix命令。\\
+用法：\\
+copy-matrix [options] $<matrix-in-rspecifier> <matrix-out-wspecifier>$ \\
+比如：\\
+copy-matrix --binary=false 1.mat - \\
+
+如果想要更新MLLT变换矩阵，使用gmm-transform-means命令。\\
+用法：\\
+est-mllt [options] $<mllt-mat-out> <stats-in1> <stats-in2> ...$ \\
+比如: \\
+est-mllt 2.mat 1a.macc 1b.macc ... \\
+
+如果想要将MLLT变换矩阵引入模型，使用gmm-transform-means命令。 \\
+用法：\\
+gmm-transform-means <transform-matrix> <model-in> <model-out> \\
+比如: \\
+gmm-transform-means 2.mat 2.mdl 3.mdl \\
+
+如果想要组合变换或特征通过变换，使用compose-transforms，transform-feats命令。 \\
+用法：\\
+compose-transforms [options] $(<transform-A-rspecifier>|<transform-A-rxfilename>) (<transform-B-rspecifier>|<transform-B-rxfilename>) (<transform-out-wspecifier>|<transform-out-wxfilename>)$ \\
+transform-feats [options] $(<transform-rspecifier>|<transform-rxfilename>) <feats-rspecifier> <feats-wspecifier>$ \\
+比如：\\
+compose-transforms 1.mat 2.mat 3.mat \\
+compose-transforms 1.mat ark:2.trans ark:3.trans \\
+compose-transforms ark:1.trans ark:2.trans ark:3.trans \\
+transform-feats final.mat ark:feats.ark ark:feats.trans.ark \\
+transform-feats ark:final.trans ark:feats.ark ark:feats.trans.ark \\
+
+\section{VTLN}
+\subsection{VTLN的基本原理}
+说话人的变化，包括声带形状和长度、口音、方言等，影响语音识别系统性能的好坏。基于不同说话人声带形状和长度的变化，引入声带长度归一化(vocal tract length normalization,VTLN)技术来评估声带长度的变化。有两种方法使用归一化因子，计算频谱时加入归一化因子和计算梅尔谱时加入归一化因子，即频带弯折VTLN（Frequency warping VTLN）和梅尔带VTLN（Mel scale VTLN）【Implementing Frequency-Warping and VTLN Through Linear
+Transformation of Conventional MFCC】【VTLN IN THE MFCC DOMAIN: BAND-LIMITED VERSUS LOCAL INTERPOLATION】，如下图所示【A Frequency Warping Approach to Speaker Normalizatio】【Vocal Tract Length Normalization for Large Vocabulary Continuous Speech Recognitio】【Using VTLN for broadcast news transcription'', by D. Y. Kim, S. Umesh, M. J. F. Gales, T. Hain and P. C. Woodland, ICSLP 2004】。
+\begin{figure}[htb]
+
+\begin{minipage}[b]{.48\linewidth}
+  \centering
+  \centerline{\includegraphics[width=6.0cm]{chapter4_figure/frequency_VTLN.png}}
+ \centerline{(a)}\medskip
+\end{minipage}
+\hfill
+\begin{minipage}[b]{0.48\linewidth}
+  \centering
+  \centerline{\includegraphics[width=4.0cm]{chapter4_figure/mel_VTLN.png}}
+\centerline{(b)}\medskip
+\end{minipage}
+\caption{(a)Frequency warping VTLN (b)Mel scale VTLN}
+\label{fig:res}
+\end{figure}
+梅尔带整合的公式如下所示：
+\begin{equation}
+O(n) = \sum_{\omega=l_{n}}^{\omega=h_{n}} T_{n}{\omega}X(\omega)   \qquad 0\le n\le N-1
+\end{equation}
+其中，$O(n)$是第n个滤波带的输出，N是滤波器的个数，$T_{n}(\omega)$是n个滤波器，$l_{n}$和$h_{n}$是第n个滤波器$T_{n}(\omega)$的低通带和高通带。
+被规整后的梅尔频率如下式所示：
+\begin{equation}
+v^{\alpha}_{l}=2595log(1+\alpha(f)/700)
+\end{equation}
+其中，$\alpha(f)$是规整函数。 \\
+弯折函数包含线性（linear），分段线性(piecewise linear)，非线性(non-linear)，双线性(bilinear)函数。计算$\alpha$的优化准则有最大后验概率（maximum a posteriori probability，MAP）, ML, 最小生成误差（Minimum generation error，minimum MGE）等。\\
+使用ML优化准则计算分段线性的弯折因子【vocal Tract Length Normalization for Statistical Parametric Speech Synthesis】，如下式所示：
+\begin{equation}
+\hat{\alpha_{s}} =  arg \max \limits_{\alpha_{s}} p(x_{\alpha} | \Theta_{\alpha_{s}},\omega_{s})
+\end{equation}
+其中，$x_{\alpha_{s}}$表示基于说话人s弯折后的特征，$\Theta$代表模型，$\omega_{s}$代表基于说话人转录数据， $\hat{\alpha_{s}}$表示基于相同说话人最好的弯折因子。\\
+以上介绍的是传统的VTLN方法。在Kaldi中，使用线性变换评估VTLN，保持采样数据的均值和协方差不变【NOTES FOR AFFINE TRANSFORM-BASED VTLN】。仿射逼近在计算上很方便，只要简单线性变换就能生成弯折特征。引入线性变换，保持均值和协方差不变还有两个主要原因:\\
+(1)线性变换不能很好地评估弯折倒谱。由于线性弯折倒谱比原始倒谱方差要低，会引起不匹配和偏差。原来的方法是每一维归一化协方差，现在kaldi中，使整个协方差矩阵归一化。\\
+(2) 非线性方法的log行列式弯折因子都接近1，VTLN性能很差，需要忽略log行列式会，而线性逼近方法不需要忽略log行列式，因为log行列式为0。
+假设输入特征$x_{t}$,$1 \le t \le T$,$y_{t}^{(n)}$是弯折后的特征，其中n代表规整类，保持均值和协方差不变，通过使$x_{t}^{+}$和$y_{t}^{(n)}$尽可能接近，计算出转换矩阵$T^(n)$。下面总结一下计算转换矩阵的公式。 \\
+x的统计值如下式所示：
+\begin{equation}
+\bar{x} := \frac{1}{T} \sum_{t=1}^{T} x_{t}
+\end{equation}
+\begin{equation}
+S := (\frac{1}{T} \sum_{t=1}^{T} x_{t}x_{t}^{T}) - \bar{x}\bar{x}^{T}
+\end{equation}
+Cholesky C如下式所示：
+\begin{equation}
+S=CC^{T}
+\end{equation}
+P的公式如下所示:
+\begin{equation}
+P_{0} := (\sum_{t=1}^{T} x_{t}y_{t}^{T}) - \bar{x} \sum_{t=1}^{T}y_{t}^{T}
+\end{equation}
+\begin{equation}
+P=ULV^{T}
+\end{equation}
+其中，U和V是正交的，L是对角矩阵。
+\begin{equation}
+N := VU^{T}
+\end{equation}
+\begin{equation}
+M := CNC^{-1}
+\end{equation}
+\begin{equation}
+v := \bar{x} - M\bar{x}
+\end{equation}
+\begin{equation}
+T := [M;v]
+\end{equation}
+\subsection{基于kaldi的VTLN}
+VTLN是通过compute-plp-feats,compute-fbank-feats,compute-mfcc-feats的一个选项"VTLN warp factor "实现。
+在kaldi中，声带归一化方法：\\
+(1) 弯折因子用在梅尔频域上；\\
+(2) 弯折函数是连续的分段线性函数;\\
+(3) 函数VtlnWarpFreq计算转换矩阵，生成弯折后的频率;\\
+(4) 函数 MelScale调用弯折后的频率，将频率转成梅尔频域。
+截止频率满足一下关系：\\
+\begin{equation}
+0 \le low\_freq \le vtln\_low   \le vtln\_high \le high\_freq  \le nyquist
+\end{equation}
+其中，$low\_freq$和$high\_freq$是特征的低频和高频截止频率，默认值设为40，7800；$vtln\_low$和$vtln\_high$是vtln的低频和高频截止频率默认值设为60,7200；nyquist默认值设为8000。\\
+规整函数分成三段，以特征的最高$(high\_freq)$和最低频率$(low\_freq)$为分界点。$F(low\_freq)=low\_freq$ ,$F(high\_freq) =high\_freq$，弯折函数是连续的。\\
+低频处：
+\begin{equation}
+scale\_low=(F_{l} - low\_freq) / (l - low\_freq)
+\end{equation}
+\begin{equation}
+F(freq)=low\_freq + scale\_low * (freq - low\_freq)
+\end{equation}
+中间：\\
+scale不变 \\
+\begin{equation}
+W(freq)=scale * freq
+\end{equation}
+高频处:
+\begin{equation}
+scale\_high = (high\_freq - F_{h}) / (high\_freq - h)
+\end{equation}
+\begin{equation}
+F(freq)=high\_freq + scale\_high * (freq - high\_freq)
+\end{equation}
+其中，scale为弯折因子的倒数,l是弯折函数低频截止频率，h是弯折函数高频截止频率。 \\
+如果想要初始化VTLN变换，使用gmm-init-vtln命令。\\
+用法:\\
+gmm-init-lvtln [options] $<lvtln-out>$ \\
+比如:\\
+gmm-init-lvtln --dim=13 --num-classes=21 --default-class=10 1.lvtln \\
+
+如果训练VTLN，使用gmm-train-lvtln-special命令。\\
+用法: \\
+gmm-train-lvtln-special [options] class-index $<lvtln-in> <lvtln-out>  <feats-untransformed-rspecifier> <feats-transformed-rspecifier> [<posteriors-rspecifier>]$\\
+比如: \\
+gmm-train-lvtln-special 5 5.lvtln 6.lvtln scp:train.scp scp:train\_warp095.scp ark:nosil.post \\
+如果评估VTLN转换矩阵，，使用矩阵gmm-est-lvtln-trans命令。\\
+用法：\\
+gmm-est-lvtln-trans [options] $<model-in> <lvtln-in> <feature-rspecifier> <gpost-rspecifier> <lvtln-trans-wspecifier> [<warp-wspecifier>]$
+\section{PCA}
+\subsection{PCA的基本原理}
+主成分分析（principal components analysis, PCA）是一种无监督、线性变换的降维方法，找到多维数据之间的内在关系，通过线性变换降维，降低观察空间的维数，获取最主要的信息。PCA是一个线性变换，把原始数据变换到一个新的坐标系统中，把原始数据在新坐标投影的最大方差作为第一个坐标，即第一主成分，第二大的方差作为第二个坐标，即第二主成分，以此类推下。主成分个数的选取根据设定累计贡献率，即保留的累计方差和与总方差的比值。因此，PCA保留了低阶主成分，忽略高阶主成分，减少了数据集的维数，保留了贡献最大的数据集。【A TUTORIAL ON PRINCIPAL COMPONENT ANALYSIS】\\
+PCA将分量相关的原始随机变量转化成分量不相关的新随机向量，将向量的协方差变成对角阵，原坐标变成新的正交坐标，数据分布在P个正交方向，然后对多维向量进行降维。
+下面介绍一下PCA变换原理:\\
+(1) 假设随机变量$X_{1}，X_{2}，...，X_{p}$，样本标准差$S_{1}，S_{2}，...，S_{p}$,做标准化变换：
+$C_{j}=a_{j1}x_{1}+a_{j2}x_{2}+...+a_{jp}x_{p}, j=1,2,...,p$\\
+(2)若$C_{1}=a_{11}x_{1}+a_{12}x_{2}+...+a{1p}x_{p}$,且使$Var(C_{1})$最大，则称$C_{1}$为第一主成分；
+(3)若$C_{2}=a_{21}x_{1}+a_{22}x_{2}+...+a{2p}x_{p}$,$(a_{21},a_{22},...,a_{2p})$垂直于$(a_{11},a_{12},...,a_{1p})$,且使$Var(C_{2})$最大，则称$C_{2}$为第一主成分；
+(4) 以此类推，有第三、第四等主要成分，最多p个。\\
+主成分的性质：\\
+(1) 主成分间互不相关，即对任意i和j，$C_{i}$和$C_{j}$的相关系数
+\begin{equation}
+Corr(C_{i},C_{j})=0
+\end{equation}
+(2) 组合系数$(a_{i1},a_{i2},...,a_{ip})$构成的向量为单位向量。\\
+(3) 各主成分的方差一次递减的，即$Var(C_{1}) \ge Var(C_{2}) \ge ... \ge Var(C_{P}) $ \\
+(4) 总方差不增不减，即\\
+$Var(C_{1})+Var(C_{2})+ ...+Var(C_{P})=Var(x_{1})+Var(x_{2})+...+Var(x_{p})$ \\
+
+主成分是原向量的重新组合,总信息量不变。\\
+(5) 主成分和原向量的相关系数$Corr(C_{i},x_{j})=a_{ij}$
+(6) 令$X_{1}$，$X_{2}$，...，$X_{p}$的相关矩阵为R，$(a_{i1},a_{i2},...,a_{ip})$则是相关矩阵R的第i个特征向量。特征值$l_{i}$就是第i主成分的方差，即$Var(C_{i})=l_{i}$,其中$l_{i}$为相关矩阵R的第i个特征值。\\
+$l_{1} \ge l_{2} \ge... \ge l_{p}$
+保留几个主成分取决于保留成分的累计方差在方差总和中所占百分比，实际中，人为设定一个百分比。\\
+下面总结一下主成分分析法的计算过程：\\
+(1) 设定原始数据有m维随机变量$x=(X_{1},X_{2},...,X_{p})^{T}$,n个样本$xi=(x_{i1},x_{i2},...,x_{ip})^{T}, i=1,2,...,n$ ，$n\ge p$,对原始样本进行标准化：
+\begin{equation}
+Z_{ij}=\frac {x_{ij}-\bar{x_{j}}}{s_{j}},i=1,2,...,p
+\end{equation}
+其中，$\bar{x_{j}}=\frac{\sum_{i=1}^{n} x_{ij}}{n},s^{2}_{j}=\frac{\sum_{i=1}^{n} (x_{ij}-\bar{x_{j}})^{2}}{n-1}$,得到标准化矩阵Z。\\
+(2) 计算标准化矩阵Z的相关系数
+\begin{equation}
+R=[r_{ij}]_{p} xp=\frac{Z^{T}Z}{n-1}
+\end{equation}
+其中，$r_{ij}=\frac{\Sigma z_{kj}*z_{kj}}{n-1},i,j=1,2,...,p$
+(3)解样本相关矩阵R的特征方程$|R-\lambda I_{p}|=0$,得p个特征根。\\
+按$\frac{\sum_{j=1}^{m}\lambda_{j}}{\sum_{j=1}^{p}\lambda_{j}} \ge 0.85$，计算出m值。\\
+解方程$Rb=\lambda_{j}b$得到单位特征向量$b_{j}$
+(4)将标准化的向量转换到求得的单位特征向量坐标上：
+ \begin{equation}
+U_{ij}=z_{j}^{T}b_{j},j=1,2,...,m
+\end{equation}
+$U_{1}$表示第一个主成分，$U_{2}$表示第二个主成分，...,$U_{p}$表示第p个主成分。
+\subsection{基于Kaldi的PCA}
+如果估计PCA变换，使用est-pca命令。\\
+用法:\\
+est-pca [options] $(<feature-rspecifier>|<vector-rspecifier>) <pca-matrix-out>$ \\
+比如：\\
+$utils/shuffle_list.pl data/train/feats.scp | head -n 5000 | sort | est-pca --dim=50 scp:- some/dir/0.mat$ \\
+\section{LDA}
+\subsection{LDA的基本原理}
+线性判决分析(Linear Discriminant Analysis, LDA) 是一种分类，降维的线性特征变换方法。LDA方法是一种监督的学习方法，将带标签的数据映射到低维空间，投影后到低维空间的数据按类别划分，变换后的特征是原来特征的线性组合。通过计算类间距离和类内距离的比值最大来做最大值区分，使得最大化的分类。\\
+下面我们介绍一下LDA方法的计算过程：
+假设数据集$\{{x_{i},y{i}}\}_{i=1}^{n}$，其中n代表采样点个数，$x_{i} \in IR^{d}$，$y_{i} \in {1,2,...,k}$代表第i个采样点的类标签，d是数据维数，k是类别数。矩阵$X=[x_{1},x_{2},...,x_{n}]$被分成k类，$X=[X_{1},X_{2},...,X_{K}]$,其中，$X_{j} \in IR^{d*n_{j}}$,$n_{j}$第j类$X_{j}$的个数，并且$\sum_{j=1}^{k}n_{j}=n$。LDA计算线性变化$F \in IR^{d*l}$，该矩阵将d维的$x_{i}$ 映射到L维的$x^{L}_{i}$，即$x_{i} \in IR^{d} \to x^{L}_{i}=T^{T}x_{i} \in IR^{l} (l < d)$。\\
+三类散布矩阵分别是类内，类间，总散布矩阵的计算公式如下所示【Least Squares Linear Discriminant Analysis】 【LINEAR DISCRIMINANT ANALYSIS - A BRIEF TUTORIAL】：\\
+\begin{equation}
+S_{\omega}=\frac{1}{n} \sum_{j=1}^{k} \sum_{x \in X_{j}} (x-c^{(j)})(x-c^{(j)})^{T}
+\end{equation}
+\begin{equation}
+S_{b}=\frac{1}{n} \sum_{j=1}^{k} n_{j}(x-c^{(j)})(x-c^{(j)})^{T}
+\end{equation}
+\begin{equation}
+S_{t}=\frac{1}{n} \sum_{j=1}^{k}(x-c^{(j)})(x-c^{(j)})^{T}
+\end{equation}
+其中，$c^{j}$是第j类的中心，c是全局的中心。定义$S_{t}=S_{b}+S_{\omega}$。$trace(S_{\omega})$表示类内距离，$trace(S_{b})$表示类间距离。经过线性变换T，得到低维空间，三类散布矩阵和线性变换矩阵如下式所示：
+\begin{equation}
+S_{\omega}^{L}=T^{T}S_{\omega}T
+\end{equation}
+\begin{equation}
+S_{b}^{L}=T^{T}S_{b}T
+\end{equation}
+\begin{equation}
+S^{L}_{t}=T^{T}S_{t}T
+\end{equation}
+通过最大化$trace(S^{L}_{b})$，最小化$trace(S^{L}_{\omega})$来优化线性变换矩阵T,或是通过最大化$trace(S^{L}_{b})$，最小化$trace(S^{L}_{t})$来优化线性变换矩阵T。\\
+线性变换的公式如下所示【Least Squares Linear Discriminant Analysis】【LINEAR DISCRIMINANT ANALYSIS - A BRIEF TUTORIAL】【Two-Dimensional Linear Discriminant Analysis】：
+\begin{equation}
+T^{LDA}=arg \max \limits_{T} \{trace(S_{b}^{L}(S^{L}_{t})^{-1})\}
+\end{equation}
+\begin{equation}
+T^{LDA}=arg \min \limits_{T} \{trace((S_{b}^{L})^{-1})S_{\omega}^{L}\}
+\end{equation}
+其中，若总散布矩阵是非奇异的，$G^{LDA}$由$S_{t}^{-1}S_{b}$的非零特征值组成。但是，当总散布矩阵是奇异的。$G^{LDA}$由$S_{t}^{+}S_{b}$的非零特征值组成。$S^{+}_{t}$代表$S_{t}$的逆，即$S_{+}^{t}$等于$S^{1}_{t}$。
+上个小结介绍的PCA和LDA都是降维，却又不同之处：\\
+(1) PCA属于无监督学习，而LDA属于有监督学习。\\
+(2) PCA以方差的角度出发，最大方差为第一主成分。然而，LDA从分类的角度出发，计算类间距离和类内距离的最大值，找到最好分类的向量。\\
+LDA方法存在一些局限性： \\
+(1) 不适用对非高斯分布的数据; \\
+(2) 样本数量小于特征维数，使类内与类间散度矩阵出现奇异状况，得到的投影方向不是最优的; \\
+(3) 以上介绍的LDA以均值为参考，如果以方差为参考，投影方向的分类结果不好； \\
+(4) LDA方法可能出现过度拟合现象。 \\
+\subsection{基于Kaldi的LDA}
+基于pdf-id计算LDA统计值，使用acc-lda命令。\\
+用法：\\
+acc-lda [options] $<transition-gmm/model> <features-rspecifier> <posteriors-rspecifier> <lda-acc-out> $ \\
+比如：\\
+ali-to-post $ark:1.ali ark:- | lda-acc 1.mdl "ark:splice-feats scp:train.scp|"  ark:- ldaacc.1$ \\
+使用上式得到的LDA统计值，评估LDA变换矩阵，使用est-lda命令。\\
+用法：\\
+est-lda [options] $<lda-matrix-out> <lda-acc-1> <lda-acc-2> ... $ \\
+
+\section{DAE}
+\subsection{DAE的基本原理}
+深度自编码(Deep Autoencoder,DAE)是一种无监督反向传播的学习方法，由编码器和解码器构成【SPEECH FEATURE DENOISING AND DEREVERBERATION VIA DEEP AUTOENCODERS FOR NOISY REVERBERANT SPEECH RECOGNITION】【Stacked Denoising Autoencoders: Learning Useful Representations in a Deep Network with a Local Denoising Criterion】。设定输入是$\{x^{(1)},x^{(2)},...\}$，其中$x^{(i)} \in R^{n}$,DAE目标值等于DAE输入值，即$y^{(i)}=x^{(i)}$。DAE是自身的一种学习，使输出值相似输入值，输入和输出神经元的个数相等。DAE的编码映射函数如下式所示:
+\begin{equation}
+f_{\theta} (x) = s(Wx+b)
+\end{equation}
+其中，$f_{\theta}$是n维输入向量到隐藏描述y的映射函数，参数$\theta=\{W,b\}$, W是$d*d$的权重矩阵，b是d维的偏移向量。\\
+隐藏层y重构输入变量，映射回输入z，$z=g^{'}_{\theta}(y)$，这个过程是DAE解码,公式如下式所示：
+\begin{equation}
+g_{\theta}^{'}(y)=W^{'}y+b^{'}
+\end{equation}
+上式也可以写成:
+\begin{equation}
+g_{\theta}^{'}(y)=s(W^{'}y+b^{'})
+\end{equation}
+其中，$\theta^{'}=\{W^{'},b^{'}\}$。z并不能准确重构x，而是计算分布函数$p(X|Z=z)$。
+优化重构函数，重构误差如下式所示:
+\begin{equation}
+L(x,z)=-logp(x|z)
+\end{equation}
+对于实数x,$X|z$服从$N(z,\delta^{2}I)$,可以将L(x,z)表示成:
+\begin{equation}
+L(x,z)=C(\delta^(2)) ||x-z||^{2}
+\end{equation}
+其中$C(\delta^{2})$表示取决于$\delta^{2}$的优化常量。\\
+
+\subsection{基于Kaldi的DAE}
+以上介绍的传统的DAE，但当DAE方法降噪，比如音乐噪声，回声等，往往把它看作一个编码器，相当于特征提取的一个过程，输入向量是带噪声数据，输出向量是纯净的数据，以纯净数据为学习目标，在代码上也是很好实现的。
+基于原始DNN训练脚本，做如下的改动：
+（1）将目标函数改成最小均方方差(Mean Square Error,MSE)
+（2）为了保证输入和输出做MSE时一致性，应该去掉softmax
+（3）目标输出的特征使用feat-to-post命令，转换成kaldi中后验概率的格式。
+%\input{referenc}
+\bibliographystyle{IEEEbib}
+\bibliography{refs4}

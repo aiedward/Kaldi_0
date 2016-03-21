@@ -5,7 +5,9 @@
 % Use this file as a template for your own input.
 %
 %%%%%%%%%%%%%%%%%%%%%%%% Springer-Verlag %%%%%%%%%%%%%%%%%%%%%%%%%%
-%\motto{Use the template \emph{chapter.tex} to style the various elements of your chapter content.}
+%\motto{Use the template \em
+
+
 \chapter{前端处理}
 \label{intro} % Always give a unique label
 % use \chaptermark{}
@@ -15,7 +17,7 @@
 
 \section{MFCC和Fbank}
 \subsection{MFCC和Fbank的基本原理}
-在自动语音识别(automatic speech recognition, ASR)研究中，大多数的方法是从音频信号提取出有用的信息，即特征提取，将特征信息作为识别系统的输入。特征提取的好坏直接影响识别系统的性能，如何根据人耳听觉特性提取具有辨识性的音频信息是语音识别的首要任务。梅尔倒谱系数（Mel-scale Frequency Cepstral Coefficients, MFCC）【Comparison of parametric representations for monosyllabic word recognition in continuously spoken sentences】 和滤波器带(Filter Fbank,Fbank)是目前比较常用的特征提取方法。
+在自动语音识别(automatic speech recognition, ASR)研究中，大多数的方法是从音频信号提取出有用的信息，即特征提取，将特征信息作为识别系统的输入。特征提取的好坏直接影响识别系统的性能，如何根据人耳听觉特性提取具有辨识性的音频信息是语音识别的首要任务。梅尔倒谱系数（Mel-scale Frequency Cepstral Coefficients, MFCC）\cite{comparison} 和滤波器带(Filter Fbank,Fbank) 是目前比较常用的特征提取方法。
 \subsubsection{预加重、分帧、加窗和抖动}
 时域上的语音信号以固定的采样频率等间隔采样，得到离散语音序列，即模数转换（Analog to digital conversion，ADC）。一般采样频率为8000Hz或16000Hz。语音信号具有短时稳定的特点，因此，语音信号的处理都是基于短时信号。
 由于发声的声带和嘴唇效应降低高频共振峰的幅值，引入高通滤波器补偿高频部分，即预加重，在Kaldi中，预处理系数默认为0.97。预加重的公式如下所示：
@@ -158,18 +160,18 @@ splice-feats scp:feats.scp ark:- \\
 \subsection{MLLT的基本原理}
 很多研究者证实数据可以被看作是高斯混合分布。如何使用高斯混合模型很好地模拟数据具有很重要的研究意义。
 目前的ASR系统使用DNN-HMM模型，其中状态切分是由GMM生成的。
-标准的GMM模型如下所示[3]：
+标准的GMM模型如下所示：
 \begin{equation}
 p(x| \Theta) = \sum_{j=1}^{M} c_{j} N(x;\mu_{j},\Sigma_{j})
 \end{equation}
 其中，$\Theta = \{c_{j},u_{j},\Sigma_{j}\}_{j}^{M}$, M代表高斯混合模型个数，$c_{j}$代表第j个高斯混合模型的权重值，$c_{j}>=0$,$\sum_{j=1}^{M} c_{j}=1$, $\mu_{j}$和$\Sigma_{j}$是第j个高斯混合模型的均值和协方差。\\
-最大值可能性（Maximum Likelihood, ML）是评估高斯混合模型模拟数据好坏的一个准则。ML准则存在以下问题【R. Gopinath, “Maximum likelihood modeling with Gaussian distributions for classification,” in Proc. IEEE ICASSP, 1998, vol. 2, pp. 661–664.】:(1) 匮乏的数据易使模型过拟合；(2) 大量的内存需求 (3) 大计算量的需求 (4) ML在类之间不具有判别性。基于上述问题，引入最大可能性线性变换(Maximum Likelihood Linear Transform, MLLT),将全协方差的形式换成对角协方差形式，允许共享一些全协方差矩阵，因此，MLLT方法可以解决前三个问题。
+最大值可能性（Maximum Likelihood, ML）是评估高斯混合模型模拟数据好坏的一个准则。ML准则存在以下问题 \cite{maximum}:(1) 匮乏的数据易使模型过拟合；(2) 大量的内存需求 (3) 大计算量的需求 (4) ML 在类之间不具有判别性。基于上述问题，引入最大可能性线性变换(Maximum Likelihood Linear Transform, MLLT), 将全协方差的形式换成对角协方差形式，允许共享一些全协方差矩阵，因此，MLLT 方法可以解决前三个问题。
 MLLT的逆协方差如下式所示：
 \begin{equation}
 \Sigma_{j}^{-1}  \approx W \Lambda_{j} W^{T} = \sum_{k=1}^{n} \lambda_{s}^{k} \omega_{k} \omega_{k}^{T}
 \end{equation}
 其中$\Lambda_{j}=diag(\Lambda_{j})=diag(\lambda_{j}^{1},\lambda_{j}^{2},...,lambda_{j}^{n})$, $\omega_{k}^{T}$代表$W^{T}$的第k行。
-根据文献【Text,Speech and Diglogue】[Semi-Tied Covariance Matrices for Hidden Markov Models]，得到$W^{T}$，是特征向量经过变换，公式如下式所示：
+根据文献 \cite{text,semitied}，得到$W^{T}$，是特征向量经过变换，公式如下式所示：
 \begin{equation}
 o(t)^{(r)}=W^{T} o(t), for \qquad r = 1,...,R
 \end{equation}
@@ -217,8 +219,7 @@ transform-feats ark:final.trans ark:feats.ark ark:feats.trans.ark \\
 
 \section{VTLN}
 \subsection{VTLN的基本原理}
-说话人的变化，包括声带形状和长度、口音、方言等，影响语音识别系统性能的好坏。基于不同说话人声带形状和长度的变化，引入声带长度归一化(vocal tract length normalization,VTLN)技术来评估声带长度的变化。有两种方法使用归一化因子，计算频谱时加入归一化因子和计算梅尔谱时加入归一化因子，即频带弯折VTLN（Frequency warping VTLN）和梅尔带VTLN（Mel scale VTLN）【Implementing Frequency-Warping and VTLN Through Linear
-Transformation of Conventional MFCC】【VTLN IN THE MFCC DOMAIN: BAND-LIMITED VERSUS LOCAL INTERPOLATION】，如下图所示【A Frequency Warping Approach to Speaker Normalizatio】【Vocal Tract Length Normalization for Large Vocabulary Continuous Speech Recognitio】【Using VTLN for broadcast news transcription'', by D. Y. Kim, S. Umesh, M. J. F. Gales, T. Hain and P. C. Woodland, ICSLP 2004】。
+说话人的变化，包括声带形状和长度、口音、方言等，影响语音识别系统性能的好坏。基于不同说话人声带形状和长度的变化，引入声带长度归一化(vocal tract length normalization,VTLN)技术来评估声带长度的变化。有两种方法使用归一化因子，计算频谱时加入归一化因子和计算梅尔谱时加入归一化因子，即频带弯折VTLN（Frequency warping VTLN）和梅尔带VTLN（Mel scale VTLN）\cite{implement,vtln}，如下图所示 \cite{frequency,vocal,using}。
 \begin{figure}[htb]
 
 \begin{minipage}[b]{.48\linewidth}
@@ -246,12 +247,12 @@ v^{\alpha}_{l}=2595log(1+\alpha(f)/700)
 \end{equation}
 其中，$\alpha(f)$是规整函数。 \\
 弯折函数包含线性（linear），分段线性(piecewise linear)，非线性(non-linear)，双线性(bilinear)函数。计算$\alpha$的优化准则有最大后验概率（maximum a posteriori probability，MAP）, ML, 最小生成误差（Minimum generation error，minimum MGE）等。\\
-使用ML优化准则计算分段线性的弯折因子【vocal Tract Length Normalization for Statistical Parametric Speech Synthesis】，如下式所示：
+使用ML优化准则计算分段线性的弯折因子 \cite{tract}，如下式所示：
 \begin{equation}
 \hat{\alpha_{s}} =  arg \max \limits_{\alpha_{s}} p(x_{\alpha} | \Theta_{\alpha_{s}},\omega_{s})
 \end{equation}
 其中，$x_{\alpha_{s}}$表示基于说话人s弯折后的特征，$\Theta$代表模型，$\omega_{s}$代表基于说话人转录数据， $\hat{\alpha_{s}}$表示基于相同说话人最好的弯折因子。\\
-以上介绍的是传统的VTLN方法。在Kaldi中，使用线性变换评估VTLN，保持采样数据的均值和协方差不变【NOTES FOR AFFINE TRANSFORM-BASED VTLN】。仿射逼近在计算上很方便，只要简单线性变换就能生成弯折特征。引入线性变换，保持均值和协方差不变还有两个主要原因:\\
+以上介绍的是传统的VTLN方法。在Kaldi中，使用线性变换评估VTLN，保持采样数据的均值和协方差不变 \cite{note}。仿射逼近在计算上很方便，只要简单线性变换就能生成弯折特征。引入线性变换，保持均值和协方差不变还有两个主要原因:\\
 (1)线性变换不能很好地评估弯折倒谱。由于线性弯折倒谱比原始倒谱方差要低，会引起不匹配和偏差。原来的方法是每一维归一化协方差，现在kaldi中，使整个协方差矩阵归一化。\\
 (2) 非线性方法的log行列式弯折因子都接近1，VTLN性能很差，需要忽略log行列式会，而线性逼近方法不需要忽略log行列式，因为log行列式为0。
 假设输入特征$x_{t}$,$1 \le t \le T$,$y_{t}^{(n)}$是弯折后的特征，其中n代表规整类，保持均值和协方差不变，通过使$x_{t}^{+}$和$y_{t}^{(n)}$尽可能接近，计算出转换矩阵$T^(n)$。下面总结一下计算转换矩阵的公式。 \\
@@ -335,7 +336,7 @@ gmm-train-lvtln-special 5 5.lvtln 6.lvtln scp:train.scp scp:train\_warp095.scp a
 gmm-est-lvtln-trans [options] $<model-in> <lvtln-in> <feature-rspecifier> <gpost-rspecifier> <lvtln-trans-wspecifier> [<warp-wspecifier>]$
 \section{PCA}
 \subsection{PCA的基本原理}
-主成分分析（principal components analysis, PCA）是一种无监督、线性变换的降维方法，找到多维数据之间的内在关系，通过线性变换降维，降低观察空间的维数，获取最主要的信息。PCA是一个线性变换，把原始数据变换到一个新的坐标系统中，把原始数据在新坐标投影的最大方差作为第一个坐标，即第一主成分，第二大的方差作为第二个坐标，即第二主成分，以此类推下。主成分个数的选取根据设定累计贡献率，即保留的累计方差和与总方差的比值。因此，PCA保留了低阶主成分，忽略高阶主成分，减少了数据集的维数，保留了贡献最大的数据集。【A TUTORIAL ON PRINCIPAL COMPONENT ANALYSIS】\\
+主成分分析（principal components analysis, PCA）是一种无监督、线性变换的降维方法，找到多维数据之间的内在关系，通过线性变换降维，降低观察空间的维数，获取最主要的信息。PCA是一个线性变换，把原始数据变换到一个新的坐标系统中，把原始数据在新坐标投影的最大方差作为第一个坐标，即第一主成分，第二大的方差作为第二个坐标，即第二主成分，以此类推下。主成分个数的选取根据设定累计贡献率，即保留的累计方差和与总方差的比值。因此，PCA保留了低阶主成分，忽略高阶主成分，减少了数据集的维数，保留了贡献最大的数据集 \cite{tutorial}。\\
 PCA将分量相关的原始随机变量转化成分量不相关的新随机向量，将向量的协方差变成对角阵，原坐标变成新的正交坐标，数据分布在P个正交方向，然后对多维向量进行降维。
 下面介绍一下PCA变换原理:\\
 (1) 假设随机变量$X_{1}，X_{2}，...，X_{p}$，样本标准差$S_{1}，S_{2}，...，S_{p}$,做标准化变换：
@@ -388,7 +389,7 @@ $utils/shuffle_list.pl data/train/feats.scp | head -n 5000 | sort | est-pca --di
 线性判决分析(Linear Discriminant Analysis, LDA) 是一种分类，降维的线性特征变换方法。LDA方法是一种监督的学习方法，将带标签的数据映射到低维空间，投影后到低维空间的数据按类别划分，变换后的特征是原来特征的线性组合。通过计算类间距离和类内距离的比值最大来做最大值区分，使得最大化的分类。\\
 下面我们介绍一下LDA方法的计算过程：
 假设数据集$\{{x_{i},y{i}}\}_{i=1}^{n}$，其中n代表采样点个数，$x_{i} \in IR^{d}$，$y_{i} \in {1,2,...,k}$代表第i个采样点的类标签，d是数据维数，k是类别数。矩阵$X=[x_{1},x_{2},...,x_{n}]$被分成k类，$X=[X_{1},X_{2},...,X_{K}]$,其中，$X_{j} \in IR^{d*n_{j}}$,$n_{j}$第j类$X_{j}$的个数，并且$\sum_{j=1}^{k}n_{j}=n$。LDA计算线性变化$F \in IR^{d*l}$，该矩阵将d维的$x_{i}$ 映射到L维的$x^{L}_{i}$，即$x_{i} \in IR^{d} \to x^{L}_{i}=T^{T}x_{i} \in IR^{l} (l < d)$。\\
-三类散布矩阵分别是类内，类间，总散布矩阵的计算公式如下所示【Least Squares Linear Discriminant Analysis】 【LINEAR DISCRIMINANT ANALYSIS - A BRIEF TUTORIAL】：\\
+三类散布矩阵分别是类内，类间，总散布矩阵的计算公式如下所示 \cite{least,linear}：\\
 \begin{equation}
 S_{\omega}=\frac{1}{n} \sum_{j=1}^{k} \sum_{x \in X_{j}} (x-c^{(j)})(x-c^{(j)})^{T}
 \end{equation}
@@ -409,7 +410,7 @@ S_{b}^{L}=T^{T}S_{b}T
 S^{L}_{t}=T^{T}S_{t}T
 \end{equation}
 通过最大化$trace(S^{L}_{b})$，最小化$trace(S^{L}_{\omega})$来优化线性变换矩阵T,或是通过最大化$trace(S^{L}_{b})$，最小化$trace(S^{L}_{t})$来优化线性变换矩阵T。\\
-线性变换的公式如下所示【Least Squares Linear Discriminant Analysis】【LINEAR DISCRIMINANT ANALYSIS - A BRIEF TUTORIAL】【Two-Dimensional Linear Discriminant Analysis】：
+线性变换的公式如下所示 \cite{least,linear,analysis}：
 \begin{equation}
 T^{LDA}=arg \max \limits_{T} \{trace(S_{b}^{L}(S^{L}_{t})^{-1})\}
 \end{equation}
@@ -437,7 +438,7 @@ est-lda [options] $<lda-matrix-out> <lda-acc-1> <lda-acc-2> ... $ \\
 
 \section{DAE}
 \subsection{DAE的基本原理}
-深度自编码(Deep Autoencoder,DAE)是一种无监督反向传播的学习方法，由编码器和解码器构成【SPEECH FEATURE DENOISING AND DEREVERBERATION VIA DEEP AUTOENCODERS FOR NOISY REVERBERANT SPEECH RECOGNITION】【Stacked Denoising Autoencoders: Learning Useful Representations in a Deep Network with a Local Denoising Criterion】。设定输入是$\{x^{(1)},x^{(2)},...\}$，其中$x^{(i)} \in R^{n}$,DAE目标值等于DAE输入值，即$y^{(i)}=x^{(i)}$。DAE是自身的一种学习，使输出值相似输入值，输入和输出神经元的个数相等。DAE的编码映射函数如下式所示:
+深度自编码(Deep Autoencoder,DAE)是一种无监督反向传播的学习方法，由编码器和解码器构成 \cite{stack,denoise}。设定输入是$\{x^{(1)},x^{(2)},...\}$，其中$x^{(i)} \in R^{n}$,DAE 目标值等于DAE 输入值，即$y^{(i)}=x^{(i)}$。DAE 是自身的一种学习，使输出值相似输入值，输入和输出神经元的个数相等。DAE的编码映射函数如下式所示:
 \begin{equation}
 f_{\theta} (x) = s(Wx+b)
 \end{equation}
@@ -467,6 +468,6 @@ L(x,z)=C(\delta^(2)) ||x-z||^{2}
 （1）将目标函数改成最小均方方差(Mean Square Error,MSE)
 （2）为了保证输入和输出做MSE时一致性，应该去掉softmax
 （3）目标输出的特征使用feat-to-post命令，转换成kaldi中后验概率的格式。
-%\input{referenc}
-\bibliographystyle{IEEEbib}
-\bibliography{refs4}
+\input{reference4.tex}
+
+
